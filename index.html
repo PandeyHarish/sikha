@@ -38,10 +38,10 @@
             <div >
                 <ul class="flex gap-4 text-indigo-900 cursor-pointer"> 
                     <li><a href="#"></a>Home</li>
-                    <li><a href="#"></a>Pages</li>
-                    <li><a href="#"></a>Elements</li>
-                    <li><a href="#"></a>Courses</li>
-                    <li><a href="#"></a>News</li>
+                    <li><a href="#pages"></a>Pages</li>
+                    <li><a href="#elements"></a>Elements</li>
+                    <li><a href="#courses"></a>Courses</li>
+                    <li><a href="#news"></a>News</li>
                     <li><a href="#contact"></a>Contact</li>
                     <li>|</li>
                     <li><i class="fa fa-magnifying-glass"></i></li>
@@ -65,8 +65,8 @@
                     <li class="p-2"><a href="#" onclick="mobNav()" class="text-xl ">Home</a></li>
                     <li class="p-2"><a href="#about" onclick="mobNav()" class="text-xl ">Pages</a></li>
                     <li class="p-2"><a href="#services" onclick="mobNav()" class="text-xl ">Elements</a></li>
-                    <li class="p-2"><a href="#contact" onclick="mobNav()" class="text-xl ">Courses</a></li>
-                    <li class="p-2"><a href="#contact" onclick="mobNav()" class="text-xl ">News</a></li>
+                    <li class="p-2"><a href="#courses" onclick="mobNav()" class="text-xl ">Courses</a></li>
+                    <li class="p-2"><a href="#news" onclick="mobNav()" class="text-xl ">News</a></li>
                     <li class="p-2"><a href="#contact" onclick="mobNav()" class="text-xl ">Contact</a></li>
                 </ul>
             </div>
@@ -121,6 +121,7 @@
         </div>
     </section>
     <!--latest course -->
+    <a id="courses"></a>
     <section>
         <div class=" bg-[url('images/courses_bg.png')] text-center ">
            <div class=" md:mx-32 sm:mx-20 mx-2 text-white pt-10">
@@ -447,6 +448,7 @@
         </div>
     </div>
     <!-- latest news -->
+    <a id="news"></a>
     <section>
         <div class=" bg-gray-200 ">
             <div class="text-center md:mx-32 sm:mx-20 mx-2 pt-10">
@@ -599,7 +601,8 @@
             <p>Copright &copy; 2022. All rights reserved</p>
         </div>
         </div>
-        
+        <!-- goto top arrow -->
+        <i class=" fa-solid fa-arrow-up bg-indigo-800 text-white px-3 py-1 text-lg font-bold rounded-full fixed bottom-16 right-5" onclick="gototop()" id="upbutton"></i>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -633,6 +636,32 @@
             $('.stop').on('click',function(){
                 owl.trigger('stop.owl.autoplay')
             })
+    </script>
+<!-- up animation -->
+
+
+    <script>
+        var upbutton = document.getElementById('upbutton');
+        upbutton.style.display = 'none';
+        window.onscroll = function(){
+            scrollfunction();
+        }
+        function scrollfunction(){
+            if(window.scrollY > 200)
+            {
+                upbutton.style.display = 'block';
+
+            }
+            else
+            {
+                upbutton.style.display = 'none';
+            }
+        }
+
+        function gototop()
+        {
+            window.scrollTo({top:0, behavior:'smooth'});
+        }
     </script>
     <script>
         var mnav=document.getElementById('mobnav');
